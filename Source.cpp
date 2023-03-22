@@ -23,7 +23,6 @@ int main()
 	Mix_Chunk* sound = Mix_LoadWAV("sound.wav");
 	
 	random_device rd;
-	uniform_int_distribution<> d(1, 99);
 
 	int arr[100];
 	//mod sortiranja
@@ -39,7 +38,8 @@ int main()
 		"2.Selection sort,\n"<<
 		"3.Bogo sort,\n"<<
 		"4.Insertion sort\n"<<
-		"5.Merge Sort\n";
+		"5.Merge Sort\n"<<
+		"6.Cocktail Sort\n";
 	cin >> x;
 	switch (x)
 	{
@@ -59,7 +59,7 @@ int main()
 		mergeSort(arr, 0, 100, renderer,20);
 		break;
 	case 6:
-		bitonicSort(arr, 0, 100, 1, renderer);
+		CocktailSort(arr, 100, renderer);
 		break;
 	default:
 		break;

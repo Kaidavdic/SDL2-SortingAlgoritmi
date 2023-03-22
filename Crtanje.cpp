@@ -55,8 +55,8 @@ void ProveriTacne(int* arr, SDL_Renderer* renderer, Mix_Chunk* sound,unsigned in
 			Mix_Volume(-1, i);
 			int channel = Mix_PlayChannel(-1, sound, 0);
 			SDL_Delay(delay);
-			std::cout << arr[i]<<std::endl;
-		}
+			//std::cout << arr[i]<<std::endl;
+		} 
 
 	}
 }
