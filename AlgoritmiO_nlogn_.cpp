@@ -1,7 +1,7 @@
 #include "AlgoritmiO_nlogn_.hpp"
 
 void merge(int array[], int const left, int const mid,
-	int const right, SDL_Renderer* renderer,unsigned int delay)
+	int const right, SDL_Renderer* renderer,unsigned int delay,int n)
 {
 	auto const subArrayOne = mid - left + 1;
 	auto const subArrayTwo = right - mid;
@@ -38,7 +38,7 @@ void merge(int array[], int const left, int const mid,
 			indexOfSubArrayTwo++;
 		}
 		indexOfMergedArray++;
-		Crtaj(array, renderer, indexOfMergedArray,-1);
+		Crtaj(array, renderer, indexOfMergedArray,-1,n);
 		SDL_Delay(delay);
 	}
 	// Copy the remaining elements of
@@ -66,7 +66,7 @@ void merge(int array[], int const left, int const mid,
 // begin is for left index and end is
 // right index of the sub-array
 // of arr to be sorted */
-void mergeSort(int array[], int const begin, int const end, SDL_Renderer* renderer,unsigned int delay)
+void mergeSort(int array[], int const begin, int const end, SDL_Renderer* renderer,unsigned int delay,int n)
 {
 	if (begin >= end) {
 		return;
@@ -75,7 +75,7 @@ void mergeSort(int array[], int const begin, int const end, SDL_Renderer* render
 	// Returns recursively
 
 	auto mid = begin + (end - begin) / 2;
-	mergeSort(array, begin, mid, renderer,delay);
-	mergeSort(array, mid + 1, end, renderer,delay);
-	merge(array, begin, mid, end, renderer, delay);
+	mergeSort(array, begin, mid, renderer,delay,n);
+	mergeSort(array, mid + 1, end, renderer,delay,n);
+	merge(array, begin, mid, end, renderer, delay,n);
 }

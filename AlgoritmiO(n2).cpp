@@ -11,7 +11,7 @@ void insertionSort(int arr[], int n, SDL_Renderer* renderer)
 		{
 			arr[j + 1] = arr[j];
 			j = j - 1;
-			Crtaj(arr, renderer, i, j);
+			Crtaj(arr, renderer, i, j,n);
 		}
 		arr[j + 1] = key;
 	}
@@ -24,8 +24,7 @@ void bubbleSort(int arr[], int n, SDL_Renderer* renderer)
 		for (j = 0; j < n - i - 1; j++) {
 			if (arr[j] > arr[j + 1])
 				std::swap(arr[j], arr[j + 1]);
-			Crtaj(arr, renderer, i, j);
-			//SDL_Delay(3);
+			Crtaj(arr, renderer, i, j,n);
 		}
 	}
 }
@@ -47,7 +46,7 @@ void selectionSort(int arr[], int n, SDL_Renderer* renderer)
 		{
 			if (arr[j] < arr[min_idx])
 				min_idx = j;
-			Crtaj(arr, renderer, i, j);
+			Crtaj(arr, renderer, i, j,n);
 		}
 		if (min_idx != i)
 			swapptr(&arr[min_idx], &arr[i]);
@@ -57,7 +56,7 @@ void selectionSort(int arr[], int n, SDL_Renderer* renderer)
 void bogosort(int a[], int n, SDL_Renderer* renderer)
 {
 	while (!std::is_sorted(a, a+n)) {
-		Crtaj(a, renderer);
+		Crtaj(a, renderer,n);
 		std::random_device rd;
 		std::shuffle(a, a + n, rd);
 	}
@@ -77,7 +76,7 @@ void CocktailSort(int a[], int n,SDL_Renderer* renderer)
 				std::swap(a[i], a[i + 1]);
 				swapped = true;
 			}
-			Crtaj(a, renderer, i, -1);
+			Crtaj(a, renderer, i, -1,n);
 
 		}
 
@@ -93,7 +92,7 @@ void CocktailSort(int a[], int n,SDL_Renderer* renderer)
 				std::swap(a[i], a[i + 1]);
 				swapped = true;
 			}
-			Crtaj(a, renderer, i, -1);
+			Crtaj(a, renderer, i, -1,n);
 
 		}
 
