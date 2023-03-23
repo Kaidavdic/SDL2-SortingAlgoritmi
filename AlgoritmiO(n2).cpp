@@ -46,7 +46,7 @@ void selectionSort(int arr[], int n, SDL_Renderer* renderer)
 		{
 			if (arr[j] < arr[min_idx])
 				min_idx = j;
-			Crtaj(arr, renderer, i, j,n);
+			//Crtaj(arr, renderer, i, j,n);
 		}
 		if (min_idx != i)
 			swapptr(&arr[min_idx], &arr[i]);

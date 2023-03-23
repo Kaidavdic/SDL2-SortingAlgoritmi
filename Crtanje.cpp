@@ -1,5 +1,7 @@
 #include "Crtanje.hpp"
 #include<iostream>
+#include <Windows.h>
+
 void Crtaj(int* arr, SDL_Renderer* renderer,int brojelemenata) {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
@@ -31,11 +33,16 @@ void Crtaj(int* arr, SDL_Renderer* renderer, int red, int blue,int brojelemenata
 		}
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-		if (i == red)
+		if (i == red) {
 			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+			Beep(100 + 10 * arr[i], 100);
 
-		if (i == blue)
+		}
+			
+
+		if (i == blue) {
 			SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+		}
 
 		SDL_RenderDrawLine(renderer, i, brojelemenata, i, arr[i]);
 	}
@@ -51,10 +58,7 @@ void ProveriTacne(int* arr, SDL_Renderer* renderer, Mix_Chunk* sound,unsigned in
 			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 			SDL_RenderDrawLine(renderer, i, brojelemenata, i, arr[i]);
 			SDL_RenderPresent(renderer);
-			Mix_Volume(-1, i);
-			int newFrequency = 22050;
-			int channel = Mix_PlayChannel(-1, sound, 0);
-			SDL_Delay(delay);
+			//SDL_Delay(1);
 			//std::cout << arr[i]<<std::endl;
 		} 
 		
